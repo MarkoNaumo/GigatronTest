@@ -1,3 +1,4 @@
+import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
@@ -17,9 +18,14 @@ public class GigatronShopTest extends BaseTest{
 
     @Test
     public void ShopTest(){
-        popupPage.clickOnPopup();
         popupPage.clickPrihavti();
         homePage.inputSearch("Samsung");
+
+        Assert.assertEquals(homePage.getResult.isDisplayed(),true,"SAMSUNG Galaxy S23+ 8/512GB Cream is displayed");
+
+        homePage.addToCartSamsung();
+
+        Assert.assertEquals(homePage.getCart(),"1");
     }
 
 
